@@ -1,0 +1,25 @@
+name: Check Enrollment
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"  # every 30 minutes
+  workflow_dispatch:  # allow manual triggering
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install beautifulsoup4 requests
+
+      - name: Run enrollment check
+        run: |
+          python check_enrollment.py
