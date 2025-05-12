@@ -17,6 +17,8 @@ for row in soup.find_all('tr'):
             if cap != tot:
                 print(f"Alert: Space is available!")
                 raise SystemExit("Enrollment check failed: Space is available!")
-            break
+            else:
+                print(f"Success: No space available.")
+                raise SystemExit("Enrollment check passed: No space available.")
         except ValueError:
             continue  # Skip rows where conversion to int fails
