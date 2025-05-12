@@ -1,6 +1,9 @@
 name: Check Enrollment
 
 on:
+  push:
+    branches:
+      - "*"  # Run on push to any branch
   schedule:
     - cron: "*/30 * * * *"  # every 30 minutes
   workflow_dispatch:  # allow manual triggering
