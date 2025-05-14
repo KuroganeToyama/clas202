@@ -1,0 +1,1 @@
+Just trying to enroll in CLAS 202.
